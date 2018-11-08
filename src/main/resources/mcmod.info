@@ -1,0 +1,16 @@
+[
+{
+  "modid": "magusoverhaul",
+  "name": "Magus Overhaul",
+  "description": "Adds new concepts to Minecraft in the form of spells, controls, monsters, bosses, machines, mechanics, and a lot more!",
+  "version": "${mod_version}",
+  "mcversion": "${mc_version}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["EtherealOnyx"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
