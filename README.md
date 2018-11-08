@@ -19,14 +19,14 @@ The easiest way to add an effect to an entity would be through the use of potion
 coming from. However, they will be extended from potions to differentiate in certain ways - one, they can't be dispelled normally,
 two, they show their effects differently, and three, they won't be able to be used explicitly with the /effect command.
 
-#Combat System
+# Combat System
 Another addition would be the concept of mana and elemental runes that will be needed to cast certain types of spells.
 Like the burnout system of Ars Magica 2, there will be penalties for spamming a spell - in a much different way, however. Cooldowns
 will be added to spells themselves, and this will create an interesting effect in gameplay. Similar spells (two spells,
 like a projectile - heal spell and a self - heal spell will share a cooldown, to prevent a player from having too many of the same spell,
 avoiding the system completely). Cooldown will be determined of the spell type, along with the mana cost and rune cost.
 
-#Control System
+# Control System
 The combat system would eventually introduce a new mode similar to 3rd person view but a little more outwards to allow for a wider FoV.
 Not only this, but the strafeability will also be improved immensely as it doesn't seem 
 quite possible to strafe around a mob/boss quite easily yet.
