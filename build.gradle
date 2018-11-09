@@ -27,8 +27,6 @@ minecraft {
 
     replace "@VERSION@", version
     replaceIn "MagusOverhaul.java"
-    
-    replace 
 }
 
 dependencies {
