@@ -6,7 +6,6 @@ import com.etherealonyx.magusoverhaul.proxy.CommonProxy;
 import net.minecraft.init.Blocks;
 
 import net.minecraft.item.Item;
-import net.minecraft.potion.Potion;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +18,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = MagusOverhaul.MODID, name = MagusOverhaul.NAME, version = MagusOverhaul.VERSION)
