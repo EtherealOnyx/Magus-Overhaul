@@ -1,5 +1,6 @@
 package com.etherealonyx.magusoverhaul;
 
+import com.etherealonyx.magusoverhaul.capability.CapabilityHandler;
 import com.etherealonyx.magusoverhaul.item.ModItems;
 import com.etherealonyx.magusoverhaul.proxy.CommonProxy;
 
@@ -7,6 +8,7 @@ import net.minecraft.init.Blocks;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -46,6 +48,13 @@ public class MagusOverhaul
     {
         logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
+
+    @EventHandler
+    public void postInit(FMLInitializationEvent event)
+    {
+        MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+    }
+
 
     @Mod.EventBusSubscriber
     public static class RegistrationHandler {

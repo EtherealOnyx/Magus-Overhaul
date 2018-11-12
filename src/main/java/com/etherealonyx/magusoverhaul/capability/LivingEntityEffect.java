@@ -23,18 +23,21 @@ public class LivingEntityEffect implements IEntityEffect {
     }
 
     @Override
-    public void setPhase(int effectPhase) {
+    public IEntityEffect setPhase(int effectPhase) {
         this.effectPhase = effectPhase;
+        return this;
     }
 
     @Override
-    public void setDuration(int effectDuration) {
+    public IEntityEffect setDuration(int effectDuration) {
         this.effectDuration = effectDuration;
+        return this;
     }
 
     @Override
-    public void setEffectType(int effectType) {
+    public IEntityEffect setEffectType(int effectType) {
         this.effectType = effectType;
+        return this;
     }
 
     @Override
