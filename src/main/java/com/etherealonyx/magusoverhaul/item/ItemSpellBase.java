@@ -23,7 +23,8 @@ public class ItemSpellBase extends ItemBase {
 
         IEntityEffect effect = playerIn.getCapability(
                 EntityEffectProvider.ENTITY_EFFECT_CAP, null);
-        effect.setEffectType(1).setDuration(80).setPhase(0);
+        if (effect.getEffectType() == 0) effect.setEffectType(1).setDuration(15).setPhase(0);
+
         return new ActionResult<ItemStack>(EnumActionResult.PASS,
                 playerIn.getHeldItem(handIn));
     }

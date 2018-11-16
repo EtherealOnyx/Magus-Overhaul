@@ -34,6 +34,8 @@ public interface IEntityEffect {
     public IEntityEffect setPhase(int effectPhase);
     public IEntityEffect setDuration(int effectDuration);
     public IEntityEffect setEffectType(int effectType);
-    public void doDurationTick();
+    public int doDurationTick();
+
+    public void reset();
 
 }

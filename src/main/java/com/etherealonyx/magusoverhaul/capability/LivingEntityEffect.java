@@ -58,11 +58,20 @@ public class LivingEntityEffect implements IEntityEffect {
     @Override
     public void changeStatus() {
         effectPhase++;
+        System.out.println(effectPhase);
     }
 
     @Override
-    public void doDurationTick() {
-        if (effectDuration > 0)
-            effectDuration--;
+    public int doDurationTick() {
+        System.out.println(effectDuration);
+        return effectDuration--;
+    }
+
+    @Override
+    public void reset() {
+        effectType = 0;
+        effectPhase = 0;
+        effectDuration = 0;
+        System.out.println("Reset Capability");
     }
 }

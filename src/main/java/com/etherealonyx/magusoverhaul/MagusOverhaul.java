@@ -1,6 +1,7 @@
 package com.etherealonyx.magusoverhaul;
 
 import com.etherealonyx.magusoverhaul.capability.CapabilityHandler;
+import com.etherealonyx.magusoverhaul.event.MOEventHandler;
 import com.etherealonyx.magusoverhaul.item.ModItems;
 import com.etherealonyx.magusoverhaul.proxy.CommonProxy;
 
@@ -53,6 +54,7 @@ public class MagusOverhaul
     public void postInit(FMLInitializationEvent event)
     {
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+        MinecraftForge.EVENT_BUS.register(new MOEventHandler());
     }
 
 
