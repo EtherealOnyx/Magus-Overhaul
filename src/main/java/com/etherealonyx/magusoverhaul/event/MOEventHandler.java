@@ -3,11 +3,10 @@ package com.etherealonyx.magusoverhaul.event;
 import com.etherealonyx.magusoverhaul.capability.EntityEffectProvider;
 import com.etherealonyx.magusoverhaul.capability.IEntityEffect;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
 
 public class MOEventHandler {
 
@@ -17,7 +16,7 @@ public class MOEventHandler {
                     EntityEffectProvider.ENTITY_EFFECT_CAP, null).getEffectType()) {
                 case 1:
                     //Aerial
-                    if (event.getEntityLiving().getEntityWorld().isRemote) {
+                    if (!event.getEntityLiving().getEntityWorld().isRemote) {
                         doAerial(event.getEntityLiving(),
                                 event.getEntityLiving().getCapability(
                                         EntityEffectProvider.ENTITY_EFFECT_CAP,
@@ -43,6 +42,7 @@ public class MOEventHandler {
             case 0:
                 entity.motionY = .9F;
                 cap.changeStatus();
+                changeMovementStatus(true);
                 break;
             case 1:
                 if (entity.motionY < 0) {
@@ -60,18 +60,18 @@ public class MOEventHandler {
             case 3:
                 if (entity.onGround) {
                     cap.reset();
-                    enableMovement();
+                    changeMovementStatus(false);
                 }
                 break;
         }
     }
 
-    public void disableMovement() {
-        //TODO Find a way to disable movement when this is called.
+    public void changeMovementStatus(boolean disable) {
+        for (int i = 0; i < Minecraft.getMinecraft().gameSettings.keyBindings.length; i++) {
+            ((MOKeyBinding) Minecraft.getMinecraft().gameSettings.keyBindings[i]).changeInputStatus(disable);
+        }
     }
 
-    public void enableMovement() {
-        //TODO Find a way to enable movement when this is called.
-    }
+
 
 }
