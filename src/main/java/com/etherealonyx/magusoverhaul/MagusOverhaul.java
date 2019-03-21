@@ -2,7 +2,6 @@ package com.etherealonyx.magusoverhaul;
 
 import com.etherealonyx.magusoverhaul.capability.CapabilityHandler;
 import com.etherealonyx.magusoverhaul.event.MOEventHandler;
-import com.etherealonyx.magusoverhaul.event.MOKeyBinding;
 import com.etherealonyx.magusoverhaul.item.ModItems;
 import com.etherealonyx.magusoverhaul.proxy.CommonProxy;
 
@@ -58,16 +57,6 @@ public class MagusOverhaul
     {
         MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
         MinecraftForge.EVENT_BUS.register(new MOEventHandler());
-        changeKeybindings();
-    }
-
-    public static void changeKeybindings() {
-
-        KeyBinding[] keys = Minecraft.getMinecraft().gameSettings.keyBindings;
-
-        for (int i = 0; i < keys.length; i++) {
-            keys[i] = new MOKeyBinding(keys[i]);
-        }
     }
 
 

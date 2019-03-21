@@ -1,5 +1,6 @@
 package com.etherealonyx.magusoverhaul.capability;
 
+import com.etherealonyx.magusoverhaul.capability.effects.interfaces.IEntityEffect;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;

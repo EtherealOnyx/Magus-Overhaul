@@ -1,8 +1,8 @@
 package com.etherealonyx.magusoverhaul.proxy;
 
 import com.etherealonyx.magusoverhaul.capability.EntityEffectStorage;
-import com.etherealonyx.magusoverhaul.capability.IEntityEffect;
-import com.etherealonyx.magusoverhaul.capability.LivingEntityEffect;
+import com.etherealonyx.magusoverhaul.capability.effects.LivingEntityEffect;
+import com.etherealonyx.magusoverhaul.capability.effects.interfaces.IEntityEffect;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 

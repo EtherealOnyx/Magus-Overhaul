@@ -1,7 +1,7 @@
 package com.etherealonyx.magusoverhaul.item;
 
 import com.etherealonyx.magusoverhaul.capability.EntityEffectProvider;
-import com.etherealonyx.magusoverhaul.capability.IEntityEffect;
+import com.etherealonyx.magusoverhaul.capability.effects.interfaces.IEntityEffect;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -21,9 +21,12 @@ public class ItemSpellBase extends ItemBase {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 
+        System.out.println(playerIn.getPitchYaw().x);
+        System.out.println(playerIn.getPitchYaw().y);
         IEntityEffect effect = playerIn.getCapability(
                 EntityEffectProvider.ENTITY_EFFECT_CAP, null);
-        if (effect.getEffectType() == 0) effect.setEffectType(1).setDuration(15).setPhase(0);
+        //TODO: Fix Position Vector for proper knockback.
+        if (effect.getType() == 0) effect.setType(1);
 
         return new ActionResult<ItemStack>(EnumActionResult.PASS,
                 playerIn.getHeldItem(handIn));
