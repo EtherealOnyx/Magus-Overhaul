@@ -71,6 +71,7 @@ public class LivingEntityEffect implements IEntityEffect {
         effectStrength = 0;
         effectMovement = null;
         effectOrigin = 0;
+        disableMovement(false);
         return this;
     }
 
@@ -92,37 +93,42 @@ public class LivingEntityEffect implements IEntityEffect {
                         entity.motionY = 0F;
                         entity.posY += .01F;
                         entity.setNoGravity(true);
-                        entity.motionZ = effectStrength * effectMovement.x;
-                        entity.motionX = effectStrength * effectMovement.z;
+                        entity.motionZ = effectStrength * effectMovement.z * -1; //negated to reproduce knockback effect./
+                        entity.motionX = effectStrength * effectMovement.x * -1;
+                    case 3: //Stun
+                        entity.motionX = 0F;
+                        entity.motionY = 0F;
+                        entity.motionZ = 0F;
                 }
                 changeStatus();
                 disableMovement(true);
                 break;
             case 1:
-                switch(effectType) {
-                    case 1: //Aerial
-                        if (entity.motionY < 0) {
-                            entity.setNoGravity(true);
-                            changeStatus();
-                            entity.motionY = 0;
-                        }
-                        break;
-                    default:
+                if (effectType == 1) {
+                    if (entity.motionY < 0) {
+                        entity.setNoGravity(true);
                         changeStatus();
-                        break;
+                        entity.motionY = 0;
+                    }
+                } else {
+                    changeStatus();
                 }
                 break;
-
             case 2:
                 if (doDurationTick() <= 0) {
-                    entity.setNoGravity(false);
+                    if (effectType == 1)
+                        entity.setNoGravity(false);
                     changeStatus();
                 }
                 break;
             case 3:
-                if (entity.onGround || entity.isInWater() || entity.posY < effectOrigin) {
+                if (effectType == 3) {
                     reset();
-                    disableMovement(false);
+                    break;
+                }
+
+                if (entity.onGround || entity.isInWater() || entity.posY < effectOrigin ) {
+                    reset();
                 }
                 break;
         }
@@ -134,7 +140,7 @@ public class LivingEntityEffect implements IEntityEffect {
         if (effectDuration == 0)
             effectDuration = Math.abs((int)(10 * effectStrength));
         if (effectMovement == null)
-            effectMovement = Vec3d.ZERO;
+            effectMovement = entity.getLookVec();
         if (effectOrigin == 0)
             effectOrigin = entity.posY;
         //TODO: Check if player is in Creative, and if so, is flying...also check if player has creative flight on.

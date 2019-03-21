@@ -21,12 +21,10 @@ public class ItemSpellBase extends ItemBase {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 
-        System.out.println(playerIn.getPitchYaw().x);
-        System.out.println(playerIn.getPitchYaw().y);
         IEntityEffect effect = playerIn.getCapability(
                 EntityEffectProvider.ENTITY_EFFECT_CAP, null);
         //TODO: Fix Position Vector for proper knockback.
-        if (effect.getType() == 0) effect.setType(1);
+        if (effect.getType() == 0) effect.setType(1).setDuration(10);
 
         return new ActionResult<ItemStack>(EnumActionResult.PASS,
                 playerIn.getHeldItem(handIn));
