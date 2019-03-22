@@ -54,9 +54,7 @@ public class LivingEntityEffect implements IEntityEffect {
     public double getStrength() { return effectStrength; }
 
     @Override
-    public void changeStatus() {
-        effectPhase++;
-    }
+    public void changeStatus() { effectPhase++; }
 
     @Override
     public int doDurationTick() {
@@ -81,6 +79,7 @@ public class LivingEntityEffect implements IEntityEffect {
                 if (!validateEffect(entity)) {
                     System.out.println("An error has occurred applying this effect and has been terminated.");
                     reset();
+                    return;
                 }
                 switch(effectType) {
                     case 1: //Aerial
@@ -100,8 +99,8 @@ public class LivingEntityEffect implements IEntityEffect {
                         entity.motionY = 0F;
                         entity.motionZ = 0F;
                 }
-                changeStatus();
                 disableMovement(true);
+                changeStatus();
                 break;
             case 1:
                 if (effectType == 1) {

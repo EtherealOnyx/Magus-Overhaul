@@ -49,7 +49,7 @@ public class MagusOverhaul
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+        proxy.initKeyBindings();
     }
 
     @EventHandler
